@@ -185,7 +185,7 @@ class _BackpressureStreamSink<S, T> implements ForwardingSink<S, T> {
         _strategy == WindowStrategy.eventAfterLastWindow) {
       if (_dispatchOnClose &&
           _hasData &&
-          queue.length > 1 &&
+          queue.isNotEmpty &&
           _onWindowEnd != null) {
         sink.add(_onWindowEnd!(unmodifiableQueue));
       }
